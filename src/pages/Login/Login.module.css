@@ -1,0 +1,127 @@
+.container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    background-color: var(--bg-primary);
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    width: 100%;
+    max-width: 400px;
+    box-shadow: var(--shadow);
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    text-align: center;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.errorAlert {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--accent-danger);
+    color: var(--accent-danger);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input {
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.input.error {
+    border-color: var(--accent-danger);
+}
+
+.input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.errorMessage {
+    color: var(--accent-danger);
+    font-size: 0.875rem;
+}
+
+.submitButton {
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 0.875rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-top: var(--spacing-sm);
+}
+
+.submitButton:hover:not(:disabled) {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.registerLink {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    color: var(--text-secondary);
+}
+
+.registerLink a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.registerLink a:hover {
+    text-decoration: underline;
+}

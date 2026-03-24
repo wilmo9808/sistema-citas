@@ -1,0 +1,194 @@
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.card.pending::before {
+    background-color: #f59e0b;
+}
+
+.card.confirmed::before {
+    background-color: #10b981;
+}
+
+.card.completed::before {
+    background-color: #3b82f6;
+}
+
+.card.cancelled::before {
+    background-color: #ef4444;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.clientName {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.status {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+}
+
+.pending .status {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.confirmed .status {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.completed .status {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.cancelled .status {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.detail {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    font-size: 0.95rem;
+}
+
+.label {
+    color: var(--text-muted);
+    min-width: 70px;
+}
+
+.value {
+    color: var(--text-secondary);
+    flex: 1;
+}
+
+.serviceInfo {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.statusSelect {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.statusSelect:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.buttonGroup {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.editButton,
+.deleteButton {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.editButton {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.editButton:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+.deleteButton {
+    background-color: transparent;
+    border: 1px solid var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+.deleteButton:hover {
+    background-color: var(--accent-danger);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: var(--spacing-md);
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .statusSelect {
+        width: 100%;
+    }
+
+    .buttonGroup {
+        width: 100%;
+    }
+
+    .editButton,
+    .deleteButton {
+        flex: 1;
+    }
+}

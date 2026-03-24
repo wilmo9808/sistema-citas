@@ -1,0 +1,45 @@
+{
+    "name": "sistema-citas",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "server": "json-server --watch backend/db.json --port 5000",
+        "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+        "test": "vitest",
+        "test:ui": "vitest --ui",
+        "test:coverage": "vitest run --coverage",
+        "test:watch": "vitest watch"
+    },
+    "dependencies": {
+        "@hookform/resolvers": "^3.10.0",
+        "@supabase/supabase-js": "^2.99.3",
+        "date-fns": "^3.6.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-hook-form": "^7.71.2",
+        "react-hot-toast": "^2.6.0",
+        "react-router-dom": "^6.30.3",
+        "yup": "^1.7.1"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/react": "^16.3.2",
+        "@testing-library/user-event": "^14.6.1",
+        "@types/node": "^20.19.37",
+        "@types/react": "^18.3.28",
+        "@types/react-dom": "^18.3.7",
+        "@vitejs/plugin-react": "^4.7.0",
+        "@vitest/coverage-v8": "^4.1.0",
+        "@vitest/ui": "^4.1.0",
+        "concurrently": "^8.2.2",
+        "jsdom": "^29.0.1",
+        "json-server": "^0.17.4",
+        "typescript": "^5.9.3",
+        "vite": "^5.4.21",
+        "vitest": "^4.1.0"
+    }
+}

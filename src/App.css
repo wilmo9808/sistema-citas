@@ -1,0 +1,32 @@
+/* src/App.css - Solo para sistema de citas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    padding: 2rem;
+    margin-top: 80px;
+}
+
+/* Estilos para modo oscuro si lo necesitas */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0f172a;
+        color: #f8fafc;
+    }
+}

@@ -1,0 +1,150 @@
+.container {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+}
+
+.label {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+.searchContainer {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.searchInput {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.newButton {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.newButton:hover {
+    background-color: var(--accent-secondary);
+}
+
+.patientsList {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+}
+
+.patientItem {
+    padding: var(--spacing-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.patientItem:last-child {
+    border-bottom: none;
+}
+
+.patientItem:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.patientItem.selected {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-left: 3px solid var(--accent-primary);
+}
+
+.patientName {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.patientEmail {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.noResults {
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.newPatientForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.input {
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.formButtons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.cancelButton {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.cancelButton:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.createButton {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: var(--accent-primary);
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: white;
+    cursor: pointer;
+}
+
+.createButton:hover:not(:disabled) {
+    background-color: var(--accent-secondary);
+}
+
+.createButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

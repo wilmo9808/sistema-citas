@@ -1,0 +1,346 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-xl);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.closeButton:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-danger);
+    transform: rotate(90deg);
+}
+
+.form {
+    padding: var(--spacing-lg);
+}
+
+.formGroup {
+    margin-bottom: var(--spacing-lg);
+}
+
+.label {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Dropzone */
+.dropzone {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background-color: var(--bg-tertiary);
+}
+
+.dropzone:hover {
+    border-color: var(--accent-primary);
+    background-color: var(--bg-hover);
+}
+
+.dropzone.dragActive {
+    border-color: var(--accent-primary);
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.fileInput {
+    display: none;
+}
+
+.dropzoneContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.uploadIcon {
+    font-size: 3rem;
+}
+
+.dropzoneContent p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.allowedFormats {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* File info */
+.fileInfo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.fileIcon {
+    font-size: 2rem;
+}
+
+.fileDetails {
+    flex: 1;
+    text-align: left;
+}
+
+.fileName {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin: 0;
+    word-break: break-all;
+    font-size: 0.9rem;
+}
+
+.fileSize {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+.removeFile {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--accent-danger);
+    padding: 0.25rem;
+    transition: all var(--transition-fast);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.removeFile:hover {
+    background-color: var(--bg-tertiary);
+    transform: scale(1.1);
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.cancelButton,
+.submitButton {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.cancelButton {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.cancelButton:hover:not(:disabled) {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-danger);
+    border-color: var(--accent-danger);
+}
+
+.submitButton {
+    background-color: var(--accent-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.submitButton:hover:not(:disabled) {
+    background-color: var(--accent-secondary);
+    transform: translateY(-2px);
+}
+
+.submitButton:disabled,
+.cancelButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Info adicional */
+.info {
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-tertiary);
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+.info p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: var(--spacing-xs) 0;
+}
+
+/* Spinner */
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal {
+        width: 95%;
+        margin: var(--spacing-md);
+    }
+
+    .header {
+        padding: var(--spacing-md);
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .form {
+        padding: var(--spacing-md);
+    }
+
+    .dropzone {
+        padding: var(--spacing-lg);
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .info {
+        padding: var(--spacing-md);
+    }
+
+    .fileInfo {
+        flex-wrap: wrap;
+    }
+
+    .fileIcon {
+        font-size: 1.5rem;
+    }
+
+    .removeFile {
+        width: 24px;
+        height: 24px;
+        font-size: 1rem;
+    }
+}

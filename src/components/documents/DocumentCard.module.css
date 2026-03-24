@@ -1,0 +1,114 @@
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-tertiary);
+    border-radius: var(--border-radius-md);
+    font-size: 1.8rem;
+}
+
+.info {
+    flex: 1;
+    min-width: 0;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.previewBtn,
+.deleteBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+    font-size: 1rem;
+}
+
+.previewBtn {
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.previewBtn:hover {
+    background-color: var(--accent-primary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.deleteBtn {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-danger);
+}
+
+.deleteBtn:hover {
+    background-color: var(--accent-danger);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        padding: var(--spacing-sm);
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .name {
+        font-size: 0.9rem;
+    }
+
+    .previewBtn,
+    .deleteBtn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,325 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    min-height: calc(100vh - 80px);
+}
+
+.header {
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: var(--accent-primary);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.backButton:hover {
+    text-decoration: underline;
+}
+
+.patientInfo {
+    flex: 1;
+}
+
+.name {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.editButton,
+.deleteButton,
+.actionButton {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-md);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.editButton {
+    background-color: var(--accent-primary);
+    border: none;
+    color: white;
+}
+
+.deleteButton {
+    background-color: transparent;
+    border: 1px solid var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+.actionButton {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.editButton:hover,
+.deleteButton:hover,
+.actionButton:hover {
+    transform: translateY(-2px);
+}
+
+.editButton:hover {
+    background-color: var(--accent-secondary);
+}
+
+.deleteButton:hover {
+    background-color: var(--accent-danger);
+    color: white;
+}
+
+.actionButton:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.tabs {
+    display: flex;
+    gap: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xl);
+}
+
+.tab {
+    background: none;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.tab:hover {
+    color: var(--accent-primary);
+}
+
+.tab.active {
+    color: var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+.tabContent {
+    min-height: 400px;
+}
+
+.infoCard {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.infoRow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.infoLabel {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.infoValue {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.appointmentsList,
+.documentsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.appointmentCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.appointmentDate {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.appointmentService {
+    color: var(--text-secondary);
+}
+
+.appointmentStatus {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.85rem;
+}
+
+.appointmentStatus.pending {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.appointmentStatus.confirmed {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.appointmentStatus.completed {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.appointmentStatus.cancelled {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.documentCard {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+}
+
+.documentIcon {
+    font-size: 1.8rem;
+}
+
+.documentInfo {
+    flex: 1;
+}
+
+.documentName {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.documentMeta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.documentActions a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.documentActions a:hover {
+    color: var(--accent-primary);
+}
+
+.empty {
+    text-align: center;
+    padding: var(--spacing-3xl);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+}
+
+.empty button {
+    margin-top: var(--spacing-md);
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-3xl);
+    gap: var(--spacing-md);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--bg-tertiary);
+    border-top-color: var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    text-align: center;
+    padding: var(--spacing-3xl);
+}
+
+.error button {
+    margin-top: var(--spacing-md);
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .infoCard {
+        grid-template-columns: 1fr;
+    }
+
+    .appointmentCard {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

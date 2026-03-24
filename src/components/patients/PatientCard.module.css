@@ -1,0 +1,102 @@
+.card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow);
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info {
+    flex: 1;
+    min-width: 0;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.badge {
+    background-color: var(--bg-tertiary);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.email,
+.phone,
+.healthData {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: var(--spacing-xs) 0;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--accent-danger);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+    opacity: 0;
+}
+
+.card:hover .deleteBtn {
+    opacity: 1;
+}
+
+.deleteBtn:hover {
+    background-color: var(--accent-danger);
+    color: white;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-wrap: wrap;
+    }
+
+    .deleteBtn {
+        opacity: 1;
+        position: absolute;
+        top: var(--spacing-xs);
+        right: var(--spacing-xs);
+    }
+}
