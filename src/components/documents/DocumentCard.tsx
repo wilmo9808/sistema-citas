@@ -1,4 +1,5 @@
 import React from 'react'
+import { FileText, Image, FileEdit, Paperclip, Eye, Trash2 } from 'lucide-react'
 import { Document } from '@/types/documents'
 import styles from './DocumentCard.module.css'
 
@@ -9,10 +10,10 @@ interface Props {
 }
 
 const getIcon = (type: string) => {
-    if (type.includes('pdf')) return '📄'
-    if (type.includes('image')) return '🖼️'
-    if (type.includes('word')) return '📝'
-    return '📎'
+    if (type.includes('pdf')) return <FileText size={24} />
+    if (type.includes('image')) return <Image size={24} />
+    if (type.includes('word')) return <FileEdit size={24} />
+    return <Paperclip size={24} />
 }
 
 const formatSize = (bytes: number) => {
@@ -35,10 +36,10 @@ const DocumentCard: React.FC<Props> = ({ document, onPreview, onDelete }) => {
             </div>
             <div className={styles.actions}>
                 <button className={styles.previewBtn} onClick={onPreview}>
-                    👁️
+                    <Eye size={18} />
                 </button>
                 <button className={styles.deleteBtn} onClick={onDelete}>
-                    🗑️
+                    <Trash2 size={18} />
                 </button>
             </div>
         </div>

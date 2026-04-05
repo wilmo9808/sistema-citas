@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Inbox, Paperclip } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { storageService } from '@/services/supabase/storage'
 import { patientsService } from '@/services/supabase/patients'
@@ -94,7 +95,7 @@ const Documents: React.FC = () => {
         return (
             <div className={styles.container}>
                 <div className={styles.empty}>
-                    <p>📭 No tienes pacientes registrados</p>
+                    <p><Inbox size={20} style={{ marginRight: 6, verticalAlign: 'middle' }} /> No tienes pacientes registrados</p>
                     <button onClick={() => window.location.href = '/appointments'}>
                         Crear primera cita
                     </button>
@@ -106,7 +107,7 @@ const Documents: React.FC = () => {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h1 className={styles.title}>📎 Documentos</h1>
+                <h1 className={styles.title}><Paperclip size={22} style={{ marginRight: 8, verticalAlign: 'middle' }} /> Documentos</h1>
                 <button
                     className={styles.uploadButton}
                     onClick={() => setShowUpload(true)}
@@ -176,7 +177,7 @@ const Documents: React.FC = () => {
                     isOpen={showUpload}
                     onClose={() => setShowUpload(false)}
                     onSuccess={handleUploadSuccess}
-                    patientId={selectedPatient.id}
+                    patientId={selectedPatient?.id || ''}
                 />
             )}
 

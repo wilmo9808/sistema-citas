@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react'
 import { Database } from '@/types/supabase'
 import { appointmentsService } from '@/services/supabase/appointments'
-import { authService } from '@/services/supabase/auth'
 
 type Appointment = Database['public']['Tables']['appointments']['Row'] & {
     services?: {

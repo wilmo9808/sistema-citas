@@ -39,7 +39,7 @@ const Appointments: React.FC = () => {
                 </button>
             </div>
 
-            {/* 👈 PASAR key para forzar refresco */}
+            {/* PASAR key para forzar refresco */}
             <AppointmentList key={refreshKey} />
 
             <AppointmentModal

@@ -24,7 +24,10 @@ export const useAppointments = () => {
 
     const createAppointment = async (appointment: Omit<Database['public']['Tables']['appointments']['Insert'], 'user_id'>) => {
         try {
-            const newAppointment = await appointmentsService.create(appointment)
+            const newAppointment = await appointmentsService.create({
+                ...appointment,
+                patient_id: appointment.patient_id || undefined
+            })
             setAppointments(prev => [...prev, newAppointment])
             return newAppointment
         } catch (err) {

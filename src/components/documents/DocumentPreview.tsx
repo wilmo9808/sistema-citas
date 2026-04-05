@@ -1,4 +1,5 @@
 import React from 'react'
+import { X, FileText } from 'lucide-react'
 import { Document } from '@/types/documents'
 import styles from './DocumentPreview.module.css'
 
@@ -18,7 +19,7 @@ const DocumentPreview: React.FC<Props> = ({ document, onClose }) => {
             <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
                 <div className={styles.header}>
                     <h3>{document.name}</h3>
-                    <button onClick={onClose}>✕</button>
+                    <button onClick={onClose}><X size={20} /></button>
                 </div>
                 <div className={styles.preview}>
                     {isImage && (
@@ -29,7 +30,7 @@ const DocumentPreview: React.FC<Props> = ({ document, onClose }) => {
                     )}
                     {!isImage && !isPDF && (
                         <div className={styles.fallback}>
-                            <p>📄 {document.name}</p>
+                            <p><FileText size={18} style={{ marginRight: 6, verticalAlign: 'middle' }} /> {document.name}</p>
                             <a href={document.url} download>Descargar archivo</a>
                         </div>
                     )}

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { Upload, X, FolderUp, FileText } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { storageService } from '@/services/supabase/storage'
 import styles from './DocumentUpload.module.css'
@@ -7,7 +8,7 @@ interface Props {
     isOpen: boolean
     onClose: () => void
     onSuccess: () => void
-    patientId: string  // 👈 NUEVO - Recibir patientId desde el padre
+    patientId: string  // NUEVO - Recibir patientId desde el padre
 }
 
 const DocumentUpload: React.FC<Props> = ({ isOpen, onClose, onSuccess, patientId }) => {
@@ -21,13 +22,13 @@ const DocumentUpload: React.FC<Props> = ({ isOpen, onClose, onSuccess, patientId
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (!file || !user || !patientId) {
-            console.log('❌ Falta archivo, usuario o patientId')
+            console.log('[ERROR] Falta archivo, usuario o patientId')
             return
         }
 
         setUploading(true)
         try {
-            // 👈 USAR patientId en lugar de user.id
+            // USAR patientId en lugar de user.id
             await storageService.uploadFile(file, patientId, user.id, category)
             onSuccess()
             onClose()
@@ -77,8 +78,8 @@ const DocumentUpload: React.FC<Props> = ({ isOpen, onClose, onSuccess, patientId
         <div className={styles.overlay} onClick={onClose}>
             <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>📤 Subir Documento</h2>
-                    <button className={styles.closeButton} onClick={onClose}>✕</button>
+                    <h2 className={styles.title}><Upload size={20} style={{ marginRight: 8, verticalAlign: 'middle' }} /> Subir Documento</h2>
+                    <button className={styles.closeButton} onClick={onClose}><X size={20} /></button>
                 </div>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
@@ -108,7 +109,7 @@ const DocumentUpload: React.FC<Props> = ({ isOpen, onClose, onSuccess, patientId
                                 onClick={() => fileInputRef.current?.click()}
                             >
                                 <div className={styles.dropzoneContent}>
-                                    <span className={styles.uploadIcon}>📁</span>
+                                    <span className={styles.uploadIcon}><FolderUp size={40} /></span>
                                     <p>Arrastra un archivo aquí o haz clic para seleccionar</p>
                                     <span className={styles.allowedFormats}>
                                         PDF, JPG, PNG, DOC, DOCX
@@ -124,7 +125,7 @@ const DocumentUpload: React.FC<Props> = ({ isOpen, onClose, onSuccess, patientId
                             </div>
                         ) : (
                             <div className={styles.fileInfo}>
-                                <span className={styles.fileIcon}>📄</span>
+                                <span className={styles.fileIcon}><FileText size={24} /></span>
                                 <div className={styles.fileDetails}>
                                     <p className={styles.fileName}>{file.name}</p>
                                     <p className={styles.fileSize}>{formatFileSize(file.size)}</p>
@@ -134,7 +135,7 @@ const DocumentUpload: React.FC<Props> = ({ isOpen, onClose, onSuccess, patientId
                                     className={styles.removeFile}
                                     onClick={() => setFile(null)}
                                 >
-                                    ✕
+                                    <X size={16} />
                                 </button>
                             </div>
                         )}

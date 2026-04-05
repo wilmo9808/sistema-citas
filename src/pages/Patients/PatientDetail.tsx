@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { ArrowLeft, Trash2, FileText, Image, Paperclip, Eye } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { patientsService } from '@/services/supabase/patients'
 import { appointmentsService } from '@/services/supabase/appointments'
@@ -105,7 +106,7 @@ const PatientDetail: React.FC = () => {
         <div className={styles.container}>
             <div className={styles.header}>
                 <button className={styles.backButton} onClick={() => navigate('/patients')}>
-                    ← Volver
+                    <ArrowLeft size={18} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Volver
                 </button>
                 <div className={styles.patientInfo}>
                     <h1 className={styles.name}>{patient.name}</h1>
@@ -115,7 +116,7 @@ const PatientDetail: React.FC = () => {
                         Editar
                     </button>
                     <button className={styles.deleteButton} onClick={handleDelete}>
-                        🗑️ Eliminar
+                        <Trash2 size={16} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Eliminar
                     </button>
                     <button className={styles.actionButton} onClick={() => navigate(`/appointments?patient=${id}`)}>
                         Nueva Cita
@@ -244,8 +245,8 @@ const PatientDetail: React.FC = () => {
                             {documents.map(doc => (
                                 <div key={doc.id} className={styles.documentCard}>
                                     <div className={styles.documentIcon}>
-                                        {doc.type.includes('pdf') ? '📄' :
-                                            doc.type.includes('image') ? '🖼️' : '📎'}
+                                        {doc.type.includes('pdf') ? <FileText size={20} /> :
+                                            doc.type.includes('image') ? <Image size={20} /> : <Paperclip size={20} />}
                                     </div>
                                     <div className={styles.documentInfo}>
                                         <div className={styles.documentName}>{doc.name}</div>
@@ -255,7 +256,7 @@ const PatientDetail: React.FC = () => {
                                     </div>
                                     <div className={styles.documentActions}>
                                         <a href={doc.url} target="_blank" rel="noopener noreferrer">
-                                            👁️
+                                            <Eye size={18} />
                                         </a>
                                     </div>
                                 </div>

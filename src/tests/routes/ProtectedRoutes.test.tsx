@@ -40,7 +40,15 @@ describe('Rutas Protegidas', () => {
 
     it('debe mostrar dashboard si hay usuario', async () => {
         const { authService } = await import('@/services/supabase/auth')
-        vi.mocked(authService.getCurrentUser).mockResolvedValue({ id: '123' })
+        vi.mocked(authService.getCurrentUser).mockResolvedValue({
+            id: '123',
+            app_metadata: {},
+            user_metadata: {},
+            aud: 'authenticated',
+            created_at: new Date().toISOString(),
+            email: 'test@test.com',
+            role: 'authenticated'
+        } as any)
 
         render(
             <MemoryRouter initialEntries={['/dashboard']}>

@@ -165,7 +165,7 @@ const AppointmentList: React.FC = () => {
                 }}
             >
                 <AppointmentForm
-                    initialData={editingAppointment || undefined}
+                    initialData={editingAppointment ? { ...editingAppointment, patient_id: editingAppointment.patient_id || undefined } : undefined}
                     onSuccess={handleSuccess}
                     onCancel={() => {
                         setModalOpen(false)

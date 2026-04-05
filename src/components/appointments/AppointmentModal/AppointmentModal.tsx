@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { X } from 'lucide-react'
 import styles from './AppointmentModal.module.css'
 
 interface AppointmentModalProps {
@@ -30,7 +31,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({
         <div className={styles.overlay} onClick={onClose}>
             <div className={styles.modal} onClick={e => e.stopPropagation()}>
                 <button className={styles.closeButton} onClick={onClose}>
-                    ✕
+                    <X size={20} />
                 </button>
                 <div className={styles.content}>
                     {children}

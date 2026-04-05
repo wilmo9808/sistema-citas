@@ -1,4 +1,5 @@
 import React from 'react'
+import { User, Trash2 } from 'lucide-react'
 import { Patient } from '@/types/patients'
 import styles from './PatientCard.module.css'
 
@@ -17,9 +18,9 @@ const PatientCard: React.FC<PatientCardProps> = ({ patient, onClick, onDelete })
         .toUpperCase()
 
     const getSexoIcon = (sexo: string | null) => {
-        if (sexo === 'M') return '👨'
-        if (sexo === 'F') return '👩'
-        return '👤'
+        if (sexo === 'M') return <User size={16} />
+        if (sexo === 'F') return <User size={16} />
+        return <User size={16} />
     }
 
     return (
@@ -62,7 +63,7 @@ const PatientCard: React.FC<PatientCardProps> = ({ patient, onClick, onDelete })
                         onDelete()
                     }}
                 >
-                    🗑️
+                    <Trash2 size={18} />
                 </button>
             )}
         </div>

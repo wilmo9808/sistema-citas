@@ -1,4 +1,5 @@
 import React from 'react'
+import { Trash2 } from 'lucide-react'
 import { Database } from '@/types/supabase'
 import styles from './AppointmentCard.module.css'
 
@@ -122,7 +123,7 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
                             }
                         }}
                     >
-                        🗑️ Eliminar
+                        <Trash2 size={16} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Eliminar
                     </button>
                 </div>
             </div>

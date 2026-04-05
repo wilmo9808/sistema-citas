@@ -1,5 +1,5 @@
 import { supabase } from './client'
-import { Database } from '@/@types/supabase'
+import { Database } from '@/types/supabase'
 
 type Appointment = Database['public']['Tables']['appointments']['Row']
 type AppointmentInsert = Database['public']['Tables']['appointments']['Insert']

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Inbox } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { patientsService } from '@/services/supabase/patients'
 import { Patient } from '@/types/patients'
@@ -100,7 +101,7 @@ const Patients: React.FC = () => {
 
             {patients.length === 0 ? (
                 <div className={styles.empty}>
-                    <p>📭 No tienes pacientes registrados</p>
+                    <p><Inbox size={20} style={{ marginRight: 6, verticalAlign: 'middle' }} /> No tienes pacientes registrados</p>
                     <button onClick={() => {
                         setEditingPatient(null)
                         setShowForm(true)

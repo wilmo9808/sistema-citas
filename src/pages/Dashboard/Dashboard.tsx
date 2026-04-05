@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import { appointmentsService } from '@/services/supabase/appointments'
 import { authService } from '@/services/supabase/auth'
 import { profilesService } from '@/services/supabase/profiles'
@@ -82,7 +83,7 @@ const Dashboard: React.FC = () => {
             <div className={styles.header}>
                 <div>
                     <h1 className={styles.welcome}>
-                        ¡Hola, {profile?.name || 'Usuario'}! 👋
+                        ¡Hola, {profile?.name || 'Usuario'}!
                     </h1>
                     <p className={styles.subtitle}>
                         Aquí está el resumen de tus citas
@@ -119,7 +120,7 @@ const Dashboard: React.FC = () => {
                         className={styles.viewAllButton}
                         onClick={() => navigate('/appointments')}
                     >
-                        Ver todas →
+                        Ver todas <ArrowRight size={16} style={{ marginLeft: 4, verticalAlign: 'middle' }} />
                     </button>
                 </div>
 

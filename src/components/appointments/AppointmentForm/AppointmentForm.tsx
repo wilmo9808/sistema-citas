@@ -47,7 +47,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
     const [loadingPatients, setLoadingPatients] = useState(true)
     const [creatingPatient, setCreatingPatient] = useState(false)
 
-    const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm({
+    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
             client_name: initialData?.client_name || '',
@@ -166,22 +166,24 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
             // Crear o buscar paciente basado en los datos ingresados
             const patientId = await getOrCreatePatient(data.client_name, data.client_email)
 
+            const selectedService = services.find(s => s.id === data.service_id)
             const appointmentData = {
                 client_name: data.client_name,
                 client_email: data.client_email,
                 date: data.date,
                 time: data.time,
                 service_id: data.service_id,
+                service_name: selectedService?.name || '',
                 notes: data.notes || null,
-                patient_id: patientId
+                patient_id: patientId || undefined
             }
 
             if (initialData?.id) {
                 await appointmentsService.update(initialData.id, appointmentData)
-                console.log('✅ Cita actualizada correctamente')
+                console.log('[OK] Cita actualizada correctamente')
             } else {
                 await appointmentsService.create(appointmentData)
-                console.log('✅ Cita creada correctamente con paciente:', patientId)
+                console.log('[OK] Cita creada correctamente con paciente:', patientId)
             }
 
             onSuccess()

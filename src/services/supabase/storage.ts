@@ -22,9 +22,9 @@ export const storageService = {
         const safeFileName = sanitizeFileName(file.name)
         const fileName = `${patientId}/${Date.now()}_${safeFileName}`
 
-        console.log('📁 Subiendo archivo:', fileName)
+        console.log('[UPLOAD] Subiendo archivo:', fileName)
 
-        const { data: uploadData, error: uploadError } = await supabase.storage
+        const { error: uploadError } = await supabase.storage
             .from(BUCKET_NAME)
             .upload(fileName, file, {
                 cacheControl: '3600',
@@ -32,7 +32,7 @@ export const storageService = {
             })
 
         if (uploadError) {
-            console.error('❌ Error en upload:', uploadError)
+            console.error('[ERROR] Error en upload:', uploadError)
             throw uploadError
         }
 
@@ -58,11 +58,11 @@ export const storageService = {
             .single()
 
         if (docError) {
-            console.error('❌ Error en insert:', docError)
+            console.error('[ERROR] Error en insert:', docError)
             throw docError
         }
 
-        console.log('✅ Archivo subido exitosamente:', fileName)
+        console.log('[OK] Archivo subido exitosamente:', fileName)
 
         return {
             ...docData,

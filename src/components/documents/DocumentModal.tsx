@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Paperclip, X, FileText, FolderUp, Lightbulb, Mail } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { storageService } from '@/services/supabase/storage'
 import styles from './DocumentModal.module.css'
@@ -7,9 +8,10 @@ interface DocumentModalProps {
     isOpen: boolean
     onClose: () => void
     onSuccess: () => void
+    patientId: string
 }
 
-const DocumentModal: React.FC<DocumentModalProps> = ({ isOpen, onClose, onSuccess }) => {
+const DocumentModal: React.FC<DocumentModalProps> = ({ isOpen, onClose, onSuccess, patientId }) => {
     const { user } = useAuth()
     const [file, setFile] = useState<File | null>(null)
     const [category, setCategory] = useState('receta')
@@ -72,7 +74,7 @@ const DocumentModal: React.FC<DocumentModalProps> = ({ isOpen, onClose, onSucces
 
         setUploading(true)
         try {
-            await storageService.uploadFile(file, user.id, category)
+            await storageService.uploadFile(file, patientId, user.id, category)
             onSuccess()
             onClose()
             setFile(null)
@@ -91,9 +93,9 @@ const DocumentModal: React.FC<DocumentModalProps> = ({ isOpen, onClose, onSucces
         <div className={styles.overlay} onClick={onClose}>
             <div className={styles.modal} onClick={e => e.stopPropagation()}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>📎 Subir Documento</h2>
+                    <h2 className={styles.title}><Paperclip size={20} style={{ marginRight: 8, verticalAlign: 'middle' }} /> Subir Documento</h2>
                     <button className={styles.closeButton} onClick={onClose}>
-                        ✕
+                        <X size={20} />
                     </button>
                 </div>
 
@@ -131,7 +133,7 @@ const DocumentModal: React.FC<DocumentModalProps> = ({ isOpen, onClose, onSucces
                             />
                             {file ? (
                                 <div className={styles.fileInfo}>
-                                    <span className={styles.fileIcon}>📄</span>
+                                    <span className={styles.fileIcon}><FileText size={24} /></span>
                                     <div className={styles.fileDetails}>
                                         <p className={styles.fileName}>{file.name}</p>
                                         <p className={styles.fileSize}>{formatFileSize(file.size)}</p>
@@ -144,12 +146,12 @@ const DocumentModal: React.FC<DocumentModalProps> = ({ isOpen, onClose, onSucces
                                             setFile(null)
                                         }}
                                     >
-                                        ✕
+                                        <X size={16} />
                                     </button>
                                 </div>
                             ) : (
                                 <div className={styles.dropzoneContent}>
-                                    <span className={styles.uploadIcon}>📁</span>
+                                    <span className={styles.uploadIcon}><FolderUp size={40} /></span>
                                     <p>Arrastra tu archivo aquí o haz clic para seleccionar</p>
                                     <small className={styles.allowedFormats}>
                                         Formatos permitidos: PDF, JPG, PNG, DOC, DOCX
@@ -186,8 +188,8 @@ const DocumentModal: React.FC<DocumentModalProps> = ({ isOpen, onClose, onSucces
                 </form>
 
                 <div className={styles.info}>
-                    <p>💡 Los documentos se guardan de forma segura y solo son visibles para ti.</p>
-                    <p>📧 Puedes adjuntar estos documentos a tus citas para referencia.</p>
+                    <p><Lightbulb size={16} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Los documentos se guardan de forma segura y solo son visibles para ti.</p>
+                    <p><Mail size={16} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Puedes adjuntar estos documentos a tus citas para referencia.</p>
                 </div>
             </div>
         </div>

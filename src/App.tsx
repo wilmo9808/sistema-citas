@@ -9,8 +9,8 @@ import Register from './pages/Register/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Appointments from './pages/Appointments/Appointments'
 import Documents from './pages/Documents/Documents'
-import Patients from './pages/Patients/Patients'           // 👈 NUEVO
-import PatientDetail from './pages/Patients/PatientDetail' // 👈 NUEVO
+import Patients from './pages/Patients/Patients'
+import PatientDetail from './pages/Patients/PatientDetail'
 import './App.css'
 
 function App() {
@@ -52,12 +52,12 @@ function App() {
                                     <Documents />
                                 </PrivateRoute>
                             } />
-                            <Route path="/patients" element={           // 👈 NUEVO
+                            <Route path="/patients" element={
                                 <PrivateRoute>
                                     <Patients />
                                 </PrivateRoute>
                             } />
-                            <Route path="/patients/:id" element={       // 👈 NUEVO
+                            <Route path="/patients/:id" element={
                                 <PrivateRoute>
                                     <PatientDetail />
                                 </PrivateRoute>

@@ -58,7 +58,7 @@ export interface Database {
                     created_at?: string
                 }
             }
-            patients: {                    // 👈 NUEVA TABLA
+            patients: {                    // TABLA DE PACIENTES
                 Row: {
                     id: string
                     name: string
@@ -111,7 +111,7 @@ export interface Database {
                     status: 'pending' | 'confirmed' | 'cancelled' | 'completed'
                     notes: string | null
                     user_id: string
-                    patient_id: string | null      // 👈 NUEVO
+                    patient_id: string | null      // Relación con paciente
                     created_at: string
                 }
                 Insert: {
@@ -125,7 +125,7 @@ export interface Database {
                     status?: 'pending' | 'confirmed' | 'cancelled' | 'completed'
                     notes?: string | null
                     user_id: string
-                    patient_id?: string | null      // 👈 NUEVO
+                    patient_id?: string | null      // Relación con paciente
                     created_at?: string
                 }
                 Update: {
@@ -139,11 +139,11 @@ export interface Database {
                     status?: 'pending' | 'confirmed' | 'cancelled' | 'completed'
                     notes?: string | null
                     user_id?: string
-                    patient_id?: string | null      // 👈 NUEVO
+                    patient_id?: string | null      // Relación con paciente
                     created_at?: string
                 }
             }
-            documents: {                     // 👈 MODIFICADA
+            documents: {                     // TABLA DE DOCUMENTOS
                 Row: {
                     id: string
                     name: string
@@ -151,9 +151,9 @@ export interface Database {
                     size: number
                     url: string
                     category: string
-                    patient_id: string           // 👈 NUEVO
-                    user_id: string              // 👈 MANTENER
-                    appointment_id: string | null // 👈 NUEVO
+                    patient_id: string           // Paciente asociado
+                    user_id: string              // Usuario propietario
+                    appointment_id: string | null // Cita asociada
                     created_at: string
                 }
                 Insert: {

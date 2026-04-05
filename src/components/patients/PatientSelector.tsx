@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { IdCard, Calendar, User } from 'lucide-react'
 import { Patient } from '@/types/patients'
 import { patientsService } from '@/services/supabase/patients'
 import styles from './PatientSelector.module.css'
@@ -108,9 +109,9 @@ const PatientSelector: React.FC<PatientSelectorProps> = ({
                                 >
                                     <div className={styles.patientName}>{patient.name}</div>
                                     <div className={styles.patientInfo}>
-                                        {patient.documento && <span>🪪 {patient.documento}</span>}
-                                        {patient.edad && <span>🎂 {patient.edad} años</span>}
-                                        {patient.sexo && <span>{patient.sexo === 'M' ? '👨' : '👩'}</span>}
+                                        {patient.documento && <span><IdCard size={14} style={{ marginRight: 4, verticalAlign: 'middle' }} /> {patient.documento}</span>}
+                                        {patient.edad && <span><Calendar size={14} style={{ marginRight: 4, verticalAlign: 'middle' }} /> {patient.edad} años</span>}
+                                        {patient.sexo && <span><User size={14} style={{ verticalAlign: 'middle' }} /></span>}
                                     </div>
                                     <div className={styles.patientEmail}>
                                         {patient.email || 'Sin email'}

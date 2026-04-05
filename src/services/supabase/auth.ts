@@ -37,7 +37,7 @@ export const authService = {
         if (error) throw error
 
         // La sesión se guarda automáticamente en localStorage por Supabase
-        console.log('✅ Login exitoso:', data.session)
+        console.log('[OK] Login exitoso:', data.session)
 
         return data
     },

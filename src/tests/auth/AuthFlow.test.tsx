@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from '@/context/AuthContext'
 import Login from '@/pages/Login/Login'
 import Register from '@/pages/Register/Register'
+import { authService } from '@/services/supabase/auth'
 
 // Mock de authService
 vi.mock('@/services/supabase/auth', () => ({
@@ -68,10 +69,8 @@ describe('Flujo de Autenticación', () => {
         })
 
         it('debe mostrar error con credenciales inválidas', async () => {
-            const { authService } = await import('@/services/supabase/auth')
-
-            // IMPORTANTE: El error debe ser un objeto Error
-            authService.signIn.mockRejectedValueOnce(new Error('Credenciales inválidas'))
+                // IMPORTANTE: El error debe ser un objeto Error
+                (authService.signIn as any).mockRejectedValueOnce(new Error('Credenciales inválidas'))
 
             render(
                 <BrowserRouter>
